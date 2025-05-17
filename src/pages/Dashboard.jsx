@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import CarCard from '../components/CarCard';
 
-const dummyCars = [
+const userDummyCars = [
   {
     _id: '1',
     make: 'Toyota',
@@ -11,29 +11,29 @@ const dummyCars = [
     image: 'https://via.placeholder.com/400x300',
   },
   {
-    _id: '2',
-    make: 'Honda',
-    model: 'Civic',
-    year: 2019,
-    price: 9200,
+    _id: '3',
+    make: 'Ford',
+    model: 'Mustang',
+    year: 2021,
+    price: 20000,
     image: 'https://via.placeholder.com/400x300',
   },
 ];
 
-function Home() {
+function Dashboard() {
   const [cars, setCars] = useState([]);
 
   useEffect(() => {
-    setCars(dummyCars);
+    setCars(userDummyCars);
   }, []);
 
   return (
     <div>
-      <h1>Available Cars</h1>
+      <h1>My Listings</h1>
       {cars.length === 0 ? (
-        <p>No cars found.</p>
+        <p>You have no cars listed yet.</p>
       ) : (
-        <div className="grid grid-cols-2">
+        <div className="grid grid-cols-1">
           {cars.map(car => (
             <CarCard key={car._id} car={car} />
           ))}
@@ -43,4 +43,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Dashboard;
