@@ -1,0 +1,20 @@
+/* General Body Styles - Apply globally */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+}
+
+/* General form status messages (can be reused) */
+.form-status-message {
+    margin-top: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+.form-status-message.success {
+    color: green;
+}
+.form-status-message.error {
+    color: red;
+}

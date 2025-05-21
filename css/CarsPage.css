@@ -1,0 +1,232 @@
+/* CarsPage Container and Header (No significant change) */
+.cars-page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.cars-page-header {
+    background-image: url('https://via.placeholder.com/1500x300/34495e/ffffff?text=Car+Inventory');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 80px 0;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+}
+
+.cars-page-header .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.cars-page-header .header-content {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.cars-page-header h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.cars-page-header .breadcrumb {
+    font-size: 1.1em;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Main Content Area (No significant change) */
+.cars-page-main {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    flex-grow: 1;
+}
+
+/* Section Headings (No significant change) */
+.featured-cars-section h2,
+.car-browser-section h2 {
+    font-size: 2.5em;
+    color: #223b7e;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* --- NEW TABLE-LIKE LAYOUT STYLES --- */
+
+.car-table-container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Ensures rounded corners apply to content */
+    margin-bottom: 50px;
+    overflow-x: auto; /* Allows horizontal scrolling on small screens */
+}
+
+.car-table-header,
+.car-row {
+    display: grid;
+    /* Define columns for each piece of car info. Adjust widths as needed. */
+    grid-template-columns: 120px 2fr 1.2fr 1.2fr 1fr 1fr 1fr 80px; /* Example column widths */
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid #eee;
+    font-size: 0.95em;
+    min-width: 700px; /* Ensure minimum width for desktop layout, enables scroll on mobile */
+}
+
+.car-table-header {
+    background-color: #f8f8f8;
+    font-weight: bold;
+    color: #555;
+    text-transform: uppercase;
+    border-bottom: 2px solid #ddd;
+}
+
+.car-row {
+    background-color: white;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.car-row:hover {
+    background-color: #f5f5f5;
+}
+
+.car-row:last-child {
+    border-bottom: none; /* No border for the last row */
+}
+
+.car-cell {
+    padding: 8px 10px;
+    white-space: nowrap; /* Prevent text wrapping in cells */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Add ellipsis for overflowed text */
+}
+
+.car-row-image {
+    width: 80px; /* Smaller image size for rows */
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.car-price-cell {
+    font-weight: bold;
+    color: #e74c3c;
+}
+
+.view-details-button-row {
+    background-color: #223b7e;
+    color: white;
+    padding: 6px 12px; /* Smaller padding for row button */
+    border: none;
+    border-radius: 4px;
+    font-size: 0.85em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none; /* Remove underline from Link */
+    display: inline-block; /* Allow padding to work */
+    text-align: center;
+}
+
+.view-details-button-row:hover {
+    background-color: #1a2e5e;
+}
+
+/* Hide mobile labels by default on desktop */
+.mobile-label {
+    display: none;
+}
+
+/* --- Responsive Adjustments for Table Layout --- */
+@media (max-width: 768px) {
+    .cars-page-header h1 {
+        font-size: 2.5em;
+    }
+    .cars-page-main {
+        padding: 0 15px;
+    }
+    .featured-cars-section h2,
+    .car-browser-section h2 {
+        font-size: 2em;
+        margin-bottom: 25px;
+    }
+
+    /* For smaller screens, stack cells vertically within each row */
+    .car-table-header {
+        display: none; /* Hide header on small screens, use mobile labels */
+    }
+
+    .car-row {
+        grid-template-columns: 1fr; /* Stack all cells in one column */
+        padding: 15px;
+        margin-bottom: 15px; /* Space between stacked rows */
+        border: 1px solid #eee; /* Add border for visual separation */
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .car-row:last-child {
+        border-bottom: 1px solid #eee; /* Ensure border on last row when stacked */
+    }
+
+    .car-cell {
+        display: flex; /* Use flex to align label and value */
+        justify-content: space-between; /* Push label to left, value to right */
+        align-items: center;
+        padding: 5px 0;
+        white-space: normal; /* Allow text to wrap */
+        text-overflow: unset; /* Remove ellipsis */
+    }
+
+    .mobile-label {
+        display: inline-block; /* Show labels on mobile */
+        font-weight: bold;
+        color: #777;
+        margin-right: 10px;
+        flex-shrink: 0; /* Prevent label from shrinking */
+    }
+
+    .car-row-image {
+        width: 100%; /* Full width image on mobile */
+        height: 150px;
+        margin-bottom: 10px;
+    }
+
+    .car-image-cell {
+        justify-content: center; /* Center image on mobile */
+    }
+
+    .car-details-cell {
+        padding-top: 15px;
+        border-top: 1px dashed #eee; /* Separator for button */
+        margin-top: 10px;
+        justify-content: center; /* Center button */
+    }
+
+    .view-details-button-row {
+        width: 100%; /* Full width button on mobile */
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cars-page-header {
+        padding: 60px 0;
+    }
+    .cars-page-header h1 {
+        font-size: 2em;
+    }
+    .cars-page-header .breadcrumb {
+        font-size: 0.9em;
+    }
+}

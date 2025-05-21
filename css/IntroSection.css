@@ -1,0 +1,80 @@
+.intro-section {
+  position: relative;
+  height: 65vh;
+  background-image: url('/bg.jpg'); /* Replace with your image */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 30px auto;
+  max-width: 90%; /* Adjust as needed */
+}
+
+.intro-section .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to bottom right, rgba(93, 12, 255, 0.5), rgba(155, 0, 250, 0.4));
+  z-index: 1;
+}
+
+.intro-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+  animation: fadeIn 1s ease-in-out;
+  padding: 0 20px;
+}
+
+.intro-content h1 {
+  font-size: 2.7rem;
+  margin-bottom: 12px;
+  color: #f2e7fe;
+}
+
+.intro-content p {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  color: #e3d5f7;
+}
+
+.cta-button {
+  background-color: #a020f0;
+  color: white;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #8700c1;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .intro-content h1 {
+      font-size: 2rem;
+  }
+  .intro-content p {
+      font-size: 1rem;
+  }
+}
